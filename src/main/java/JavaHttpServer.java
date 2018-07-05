@@ -19,13 +19,11 @@ public class JavaHttpServer {
 		while (true) {
 			try {
 				Socket socket = serverSocket.accept();
-				//Thread worker  = n
-
-
+				Thread worker  = new WorkerThread(socket,parser,handler);
+				worker.start();
 			}catch (IOException e) {
 				System.out.println("Failed to dispatch:"+e.getMessage());
 			}
-
 		}
 
 	}

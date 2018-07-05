@@ -36,6 +36,7 @@ public class Response {
                 "Connection: Close" + CRLF +
                 CRLF;
 		out.write(response.getBytes(StandardCharsets.UTF_8));
+		///css htmlとかが入る
 		out.write(body);
 		out.flush();
 	}

@@ -23,11 +23,10 @@ public class RequestHandler {
 
 		Path resourcePath = Paths.get("public",request.path).normalize();
 
-		if (!resourcePath.startsWith("public/")){// ディレクトリトラバーサル
+		///これがなかったディレクトリトラバーサル
+		if (!resourcePath.startsWith("public/")){
 			return new Response(Status.FORBIDDEN, HTML_MIME, Files.readAllBytes(FORBIDDEN_HTML_PATH));
 		}
-
-
 
 		if(Files.isDirectory(resourcePath)) {
 			String mime = mimeDetector.getMime(resourcePath);
